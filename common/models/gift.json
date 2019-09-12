@@ -1,0 +1,54 @@
+{
+  "name": "Gift",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "reserved": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "donor": {
+      "type": "belongsTo",
+      "model": "Donor",
+      "foreignKey": ""
+    },
+    "receiver": {
+      "type": "belongsTo",
+      "model": "Receiver",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticatedDonor",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Receiver",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "gifts": {
+      "type": "hasMany",
+      "model": "Gift",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
